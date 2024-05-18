@@ -1,0 +1,9 @@
+.cart{
+     background-color: rgb(238, 190, 132);
+     padding: 25px;
+
+}
+.cart p{
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+}
