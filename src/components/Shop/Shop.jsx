@@ -17,7 +17,13 @@ const Shop = () => {
 
     useEffect(()=>{
         const storeCart = getShoppingCart();
-        console.log(storeCart);
+        // step1: get id 
+        for (const id in storeCart) {
+            //get the product from the products
+            const addedProduct = products.find(product => product.id === parseInt(id));
+            console.log(id, addedProduct);
+            
+        }
     },[])
 
     const handleAddToCart = (product) => {
