@@ -45,7 +45,7 @@ const Shop = () => {
             product.quantity = 1;
             newCart = [...cart, product];
         }
-     esle{
+     else{
          exists.quantity = exists.quantity + 1;
          const remaining = cart.filter(p => p.id !== product.id);
         newCart = [...remaining, exists];
