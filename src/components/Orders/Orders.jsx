@@ -4,11 +4,13 @@ import { Link, useLoaderData } from 'react-router-dom';
 import ReviewItem from '../ReviewItem/ReviewItem';
 import './Orders.css';
 import { deleteShoppingCart, removeFromDb } from '../../utilities/fakedb';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';  
+import { faCheckCircle, faCreditCard, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 const Orders = () => {
-      const savedCart = useLoaderData();
-    
-    const[cart, setCart] = useState(savedCart);
+    const savedCart = useLoaderData();
+
+    const [cart, setCart] = useState(savedCart);
     const handleRemoveFromCart = (id) => {
         const remaining = cart.filter(product => product.id !== id);
         setCart(remaining);
@@ -23,28 +25,30 @@ const Orders = () => {
     return (
         <div className='shop-container'>
             <div className='review-container'>
-               {
-                   cart.map (product => <ReviewItem
-                     key={product.id}
+                {
+                    cart.map(product => <ReviewItem
+                        key={product.id}
                         product={product}
                         handleRemoveFromCart={handleRemoveFromCart}
-                   ></ReviewItem>)
-               }
+                    ></ReviewItem>)
+                }
             </div>
             <div className='cart-container'>
                 <Cart
-                 cart={cart}
-                 handleClearCart={handleClearCart}
-                 >
+                    cart={cart}
+                    handleClearCart={handleClearCart}
+                >
                     <Link to="/checkout">
-                        <button className='btn-proceed'>Proceed Checkout</button>
+                        <button className='btn-proceed'>
+                            <span>Proceed Checkout</span>
+                            <FontAwesomeIcon icon={faCreditCard}></FontAwesomeIcon>
+                        </button>
                     </Link>
-                 </Cart>
+                </Cart>
             </div>
 
         </div>
     );
 };
 
-export default Orders; 
- 
+export default Orders;
