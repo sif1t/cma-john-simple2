@@ -16,3 +16,8 @@ nav a{
 nav a:hover{
     color: #FFD700;
 }
+
+.text-white {
+    color: white;
+    padding-left: 20px;
+}
